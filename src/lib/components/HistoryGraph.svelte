@@ -17,9 +17,7 @@
   {/each}
 </ul>
 
-<button class='graph' onclick={() => goto('/graph/')}>
-  グラフを表示
-</button>
+<button class="graph" onclick={() => goto('/graph/')}> グラフを表示 </button>
 
 <style lang="scss">
   .list {
