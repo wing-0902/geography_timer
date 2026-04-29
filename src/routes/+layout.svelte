@@ -4,6 +4,8 @@
   let { children } = $props();
 
   import '$lib/global.scss';
+
+  import { VERSION } from '@sveltejs/kit';
 </script>
 
 <svelte:head>
@@ -16,3 +18,23 @@
 </header>
 
 {@render children()}
+
+<footer class='footer'>
+  <p>
+    Created by @wing.osaka
+    <br/>
+    <a href='https://github.com/wing-0902/geography_timer'>Source Code on GitHub</a>
+    <br/>
+    SvelteKit v{VERSION}
+  </p>
+</footer>
+
+<style lang="scss">
+  .footer {
+    margin-top: 30px;
+    p {
+      font-size: 15px;
+      line-height: 1.8;
+    }
+  }
+</style>
