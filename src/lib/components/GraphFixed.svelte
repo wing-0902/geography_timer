@@ -9,14 +9,11 @@
     return () => clearInterval(interval);
   });
 
-  const now = $derived(() => {
+  const now = $derived.by(() => {
     const last = historyStore.lastAction;
-
-    // もし最後のアクションが 'finish' ならその時の記録時間を返す
     if (last && last.action === 'finish') {
       return last.time;
     }
-
     return nowOnClock;
   });
 

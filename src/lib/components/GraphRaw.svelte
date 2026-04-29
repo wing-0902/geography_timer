@@ -9,15 +9,12 @@
     return () => clearInterval(interval);
   });
 
-  const now = $derived(() => {
+  const now = $derived.by(() => {
     const last = historyStore.lastAction;
-
-    // もし最後のアクションが 'finish' なら、その時の記録時間を返す
     if (last && last.action === 'finish') {
       return last.time;
     }
-
-    return nowOnClock;
+    return nowOnClock; // これで数値が返る
   });
 
   // 時間ベースでの集計
