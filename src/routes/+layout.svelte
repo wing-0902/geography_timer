@@ -8,6 +8,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <title>地理授業時間探求</title>
 </svelte:head>
 
 <header>
