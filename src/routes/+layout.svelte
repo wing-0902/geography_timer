@@ -19,12 +19,12 @@
 
 {@render children()}
 
-<footer class='footer'>
+<footer class="footer">
   <p>
     Created by @wing.osaka
-    <br/>
-    <a href='https://github.com/wing-0902/geography_timer'>Source Code on GitHub</a>
-    <br/>
+    <br />
+    <a href="https://github.com/wing-0902/geography_timer">Source Code on GitHub</a>
+    <br />
     SvelteKit v{VERSION}
   </p>
 </footer>

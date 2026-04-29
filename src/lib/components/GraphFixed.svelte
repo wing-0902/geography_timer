@@ -2,10 +2,22 @@
   import { historyStore } from '$lib/utils/syncLocal.svelte';
   import { getValueToName, type Action, ACTIONS } from '$lib/utils/getValueToName';
 
-  let now = $state(Date.now());
+  // 1秒ごとにグラフを更新するためのタイマー（最新の作業時間を反映させるため）
+  let nowOnClock = $state(Date.now());
   $effect(() => {
-    const interval = setInterval(() => (now = Date.now()), 1000);
+    const interval = setInterval(() => (nowOnClock = Date.now()), 1000);
     return () => clearInterval(interval);
+  });
+
+  const now = $derived(() => {
+    const last = historyStore.lastAction;
+
+    // もし最後のアクションが 'finish' なら、その時の記録時間を返す
+    if (last && last.action === 'finish') {
+      return last.time;
+    }
+
+    return nowOnClock;
   });
 
   const stats = $derived.by(() => {
