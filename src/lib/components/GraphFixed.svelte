@@ -12,7 +12,7 @@
   const now = $derived(() => {
     const last = historyStore.lastAction;
 
-    // もし最後のアクションが 'finish' なら、その時の記録時間を返す
+    // もし最後のアクションが 'finish' ならその時の記録時間を返す
     if (last && last.action === 'finish') {
       return last.time;
     }
