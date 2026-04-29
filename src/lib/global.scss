@@ -1,11 +1,11 @@
 html {
   position: relative;
   overflow-x: hidden;
-    background-color: black;
+  background-color: black;
 }
 
 html::before {
-  content: "";
+  content: '';
   position: fixed;
   top: -10px;
   left: -10px;
@@ -16,7 +16,20 @@ html::before {
   z-index: -1;
 }
 
-html, body {
-    color: white;
-    text-align: center;
+html,
+body {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-size: 28px;
+}
+
+button {
+  font-size: 28px;
+  background-color: transparent;
+  color: white;
+  height: 54px;
+  border-radius: 27px;
 }

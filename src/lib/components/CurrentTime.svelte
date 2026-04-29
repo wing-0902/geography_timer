@@ -1,22 +1,16 @@
-<script lang='ts'>
-	let now = $state(new Date());
+<script lang="ts">
+  let now = $state(new Date());
 
-	$effect(() => {
-		const interval = setInterval(() => {
-			now = new Date();
-		}, 1000);
+  $effect(() => {
+    const interval = setInterval(() => {
+      now = new Date();
+    }, 1000);
 
-		return () => clearInterval(interval);
-	});
+    return () => clearInterval(interval);
+  });
 
-	// フォーマット済みの文字列（リアクティブに更新される）
-	const timeString = $derived(now.toLocaleTimeString());
+  // フォーマット済みの文字列（リアクティブに更新される）
+  const timeString = $derived(now.toLocaleTimeString());
 </script>
 
-<p class='timer'>{timeString}</p>
-
-<style lang="scss">
-    .timer {
-        font-size: 30px;
-    }
-</style>
+<p>{timeString}</p>
