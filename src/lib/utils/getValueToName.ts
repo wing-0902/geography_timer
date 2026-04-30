@@ -7,6 +7,8 @@ export const ACTIONS = [
   'finish',
   'late',
   'test',
+  'break',
+  'table',
   'other'
 ] as const;
 
@@ -21,6 +23,8 @@ export function getValueToName(value: Action) {
   else if (value === 'finish') return '終了';
   else if (value === 'late') return '遅刻';
   else if (value === 'test') return 'テスト';
+  else if (value === 'break') return '休憩';
+  else if (value === 'table') return '机間巡視';
   else if (value === 'other') return 'その他';
   else return '不明';
 }
