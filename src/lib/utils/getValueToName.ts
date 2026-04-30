@@ -29,4 +29,21 @@ export function getValueToName(value: Action) {
   else if (value === '自慢話') return '自慢話';
   else if (value === 'other') return 'その他';
   else return '不明';
-}
+};
+
+export function getColor(value: Action) {
+  if (value === 'start') return '';
+  else if (value === 'work') return '';
+  else if (value === 'study') return '';
+  else if (value === 'talk') return '';
+  else if (value === 'chat') return '';
+  else if (value === 'finish') return '';
+  else if (value === 'late') return '';
+  else if (value === 'test') return '';
+  else if (value === 'break') return '';
+  else if (value === 'table') return '';
+  else if (value === '自慢話') return '';
+  else if (value === 'other') return '';
+  else return 'gray';
+
+};
