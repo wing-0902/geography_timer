@@ -1,6 +1,11 @@
 <script lang="ts">
   import { historyStore } from '$lib/utils/syncLocal.svelte';
-  import { getValueToName, type Action, ACTIONS, getColor as getColorFr } from '$lib/utils/getValueToName';
+  import {
+    getValueToName,
+    type Action,
+    ACTIONS,
+    getColor as getColorFr
+  } from '$lib/utils/getValueToName';
 
   // 1秒ごとにグラフを更新するためのタイマー（最新の作業時間を反映させるため）
   let nowOnClock = $state(Date.now());

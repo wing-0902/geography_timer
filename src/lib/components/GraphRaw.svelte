@@ -68,14 +68,16 @@
       {/each}
     </div>
 
-    <div class="legend">
-      {#each timeline as seg}
-        <div class="legend-item">
-          <span class="dot" style="background-color: {getColor(seg.action)}"></span>
-          <span>{seg.name} ({formatDuration(seg.duration)})</span>
-        </div>
-      {/each}
-    </div>
+    {#if false}
+      <div class="legend">
+        {#each timeline as seg}
+          <div class="legend-item">
+            <span class="dot" style="background-color: {getColor(seg.action)}"></span>
+            <span>{seg.name} ({formatDuration(seg.duration)})</span>
+          </div>
+        {/each}
+      </div>
+    {/if}
   </div>
 {/if}
 

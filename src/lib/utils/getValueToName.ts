@@ -29,7 +29,7 @@ export function getValueToName(value: Action) {
   else if (value === '自慢話') return '自慢話';
   else if (value === 'other') return 'その他';
   else return '不明';
-};
+}
 
 export function getColor(value: Action) {
   if (value === 'start') return '#d1d1d1';
@@ -45,4 +45,4 @@ export function getColor(value: Action) {
   else if (value === '自慢話') return '#ff9100';
   else if (value === 'other') return '#777777';
   else return '#777777';
-};
+}
