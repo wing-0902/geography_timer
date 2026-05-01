@@ -32,18 +32,17 @@ export function getValueToName(value: Action) {
 };
 
 export function getColor(value: Action) {
-  if (value === 'start') return '';
-  else if (value === 'work') return '';
-  else if (value === 'study') return '';
-  else if (value === 'talk') return '';
-  else if (value === 'chat') return '';
-  else if (value === 'finish') return '';
-  else if (value === 'late') return '';
-  else if (value === 'test') return '';
-  else if (value === 'break') return '';
-  else if (value === 'table') return '';
-  else if (value === '自慢話') return '';
-  else if (value === 'other') return '';
-  else return 'gray';
-
+  if (value === 'start') return '#d1d1d1';
+  else if (value === 'work') return '#5cd179';
+  else if (value === 'study') return '#4595ff';
+  else if (value === 'talk') return '#5b4af0';
+  else if (value === 'chat') return '#d44af0';
+  else if (value === 'finish') return '#000000';
+  else if (value === 'late') return '#ff0000';
+  else if (value === 'test') return '#fffb00';
+  else if (value === 'break') return '#b3ff00';
+  else if (value === 'table') return '#da33a2';
+  else if (value === '自慢話') return '#ff9100';
+  else if (value === 'other') return '#777777';
+  else return '#777777';
 };
