@@ -10,7 +10,7 @@ class HistoryStore {
   items = $state<Activity[]>([]);
 
   // Action型の文字列だけ取得
-  actionStr = $derived(this.items.map(item => item.action));
+  actionStr = $derived(this.items.map((item) => item.action));
 
   // 読み込み状態
   isLoaded = $state(false);

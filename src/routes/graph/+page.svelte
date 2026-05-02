@@ -1,8 +1,8 @@
 <script lang="ts">
   import GraphRaw from '$lib/components/GraphRaw.svelte';
   import GraphFixed from '$lib/components/GraphFixed.svelte';
-  import Export from '$lib/components/Export.svelte'; 
-  
+  import Export from '$lib/components/Export.svelte';
+
   import { historyStore } from '$lib/utils/syncLocal.svelte';
 </script>
 
@@ -13,10 +13,10 @@
 <GraphRaw />
 <GraphFixed />
 
-{#if historyStore.lastActionStr === "finish"}
+{#if historyStore.lastActionStr === 'finish' || historyStore.lastActionStr === null}
   <Export />
 {:else}
-  <p class='warn'>計測中のファイルの読み書きはできません．</p>
+  <p class="warn">計測中のファイルの読み書きはできません．</p>
 {/if}
 
 <style lang="scss">
