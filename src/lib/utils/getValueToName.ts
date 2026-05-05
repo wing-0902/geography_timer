@@ -52,5 +52,9 @@ export function getColor(value: Action) {
   else if (value === 'table') return '#da33a2';
   else if (value === '自慢話') return '#ff9100';
   else if (value === 'other') return '#777777';
+  else if (value === '謝罪') return '#b8bf35';
+  else if (value === '下ネタ') return '#ff618b';
+  else if (value === '演習') return '#00bbff';
+  else if (value === '調査') return '#35bf7c';
   else return '#777777';
 }
