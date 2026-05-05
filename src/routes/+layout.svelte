@@ -4,6 +4,9 @@
   let { children } = $props();
 
   import '$lib/global.scss';
+  import 'sanitize.css';
+
+  import '@fontsource/zen-kaku-gothic-new';
 
   import { VERSION } from '@sveltejs/kit';
 </script>

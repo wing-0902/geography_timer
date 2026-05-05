@@ -26,6 +26,8 @@
     "vite": "^8.0.7"
   },
   "dependencies": {
-    "localforage": "^1.10.0"
+    "@fontsource/zen-kaku-gothic-new": "^5.2.7",
+    "localforage": "^1.10.0",
+    "sanitize.css": "^13.0.0"
   }
 }
