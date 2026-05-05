@@ -4,6 +4,9 @@
   let { children } = $props();
 
   import '$lib/global.scss';
+  import 'sanitize.css';
+
+  import '@fontsource/zen-kaku-gothic-new';
 
   import { VERSION } from '@sveltejs/kit';
 </script>
@@ -23,7 +26,7 @@
   <p>
     Created by @wing.osaka
     <br />
-    <a href="https://github.com/wing-0902/geography_timer" target='_blank'>Source Code on GitHub</a>
+    <a href="https://github.com/wing-0902/geography_timer" target="_blank">Source Code on GitHub</a>
     <br />
     SvelteKit v{VERSION}
   </p>

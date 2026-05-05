@@ -2,7 +2,6 @@
   import { historyStore } from '$lib/utils/syncLocal.svelte';
   import { getValueToName, type Action, getColor as getColorFr } from '$lib/utils/getValueToName';
 
-  // 1秒ごとにグラフを更新するためのタイマー（最新の作業時間を反映させるため）
   let nowOnClock = $state(Date.now());
   $effect(() => {
     const interval = setInterval(() => (nowOnClock = Date.now()), 1000);
@@ -14,7 +13,7 @@
     if (last && last.action === 'finish') {
       return last.time;
     }
-    return nowOnClock; // これで数値が返る
+    return nowOnClock;
   });
 
   // 時間ベースでの集計
@@ -22,9 +21,8 @@
     const items = historyStore.allItems;
     if (items.length === 0) return [];
 
-    // 各区間の「期間」を計算
     const sections = items.map((item, i) => {
-      const nextTime = items[i + 1]?.time ?? now; // 次がなければ現在時刻
+      const nextTime = items[i + 1]?.time ?? now;
       const duration = Math.max(0, nextTime - item.time);
       return {
         ...item,
@@ -59,7 +57,7 @@
         <div
           class="segment"
           style="width: {seg.width}%; background-color: {getColor(seg.action)};"
-          title="{seg.name}: {formatDuration(seg.duration)}"
+          data-tooltip="{seg.name}: {formatDuration(seg.duration)}"
         >
           {#if seg.width > 10}
             <span class="label">{seg.name}</span>
@@ -67,17 +65,6 @@
         </div>
       {/each}
     </div>
-
-    {#if false}
-      <div class="legend">
-        {#each timeline as seg}
-          <div class="legend-item">
-            <span class="dot" style="background-color: {getColor(seg.action)}"></span>
-            <span>{seg.name} ({formatDuration(seg.duration)})</span>
-          </div>
-        {/each}
-      </div>
-    {/if}
   </div>
 {/if}
 
@@ -92,7 +79,6 @@
     height: 40px;
     width: 100%;
     border-radius: 8px;
-    overflow: hidden;
     background: white;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -104,13 +90,39 @@
     justify-content: center;
     transition: width 0.3s ease;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
 
-    .label {
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-      white-space: nowrap;
+    &:hover {
+      filter: brightness(1.1);
+      z-index: 2;
+
+      &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: normal;
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: calc(100% + 2px);
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: rgba(0, 0, 0, 0.8);
+      }
     }
   }
 
