@@ -75,7 +75,7 @@
         <div
           class="segment"
           style="width: {stat.percentage}%; background-color: {getColor(stat.action)}"
-          title="{stat.name}: {formatTime(stat.ms)}"
+          data-tooltip="{stat.name}: {formatTime(stat.ms)}"
         >
           {#if stat.percentage > 12}
             <span class="label">{stat.name}</span>
@@ -105,7 +105,6 @@
     height: 36px;
     width: 100%;
     border-radius: 10px;
-    overflow: hidden;
     background-color: white;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
@@ -116,7 +115,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
+    position: relative;
+
+    &:hover {
+      filter: brightness(1.1);
+      z-index: 2;
+
+      &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: normal;
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: calc(100% + 2px);
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: rgba(0, 0, 0, 0.8);
+      }
+    }
 
     .label {
       color: white;
