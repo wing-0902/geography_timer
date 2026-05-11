@@ -16,6 +16,7 @@ export const ACTIONS = [
   '調査',
   '悪口',
   '無言',
+  '退室',
   'other'
 ] as const;
 
